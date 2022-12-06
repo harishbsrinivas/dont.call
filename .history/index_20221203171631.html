@@ -3,9 +3,9 @@
 
 <head>
     <meta charset="utf-8" />
-    <title>Should I reach out to the DevOps Engineer On Call?</title>
+    <title>Should I reach out to the DevOps oncall?</title>
     <meta name="description"
-        content="A simple, opinionated decision system to help decide whether to reach out to the Devops Engineer On Call?" />
+        content="A simple, opinionated decision system to help decide whether to reach out to the Devops oncall?" />
     <link rel="shortcut icon" href="https://dont.build/favicon.png" />
     <meta property="og:image" content="https://dont.build/thumb.png">
     <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -16,36 +16,17 @@
 
     <div class="container">
         <section class="box">
-            <h1 class="title">Should I reach out to the DevOps Engineer On Call?</h1>
+            <h1 class="title">Should I reach out to the DevOps Oncall?</h1>
             <br />
             <form class="form">
                 <fieldset class="p-outage">
                     <span class="value"></span>
                     <label>Is this a production outage?</label>
-                    <input type="range" min="1" max="2" step="1" list="tickmarks" />
-                    <datalist id="tickmarks">
-                        <option value="1"></option>
-                        <option value="2"></option>
-                    </datalist>
-                </fieldset>
-                <fieldset class="p-impact">
-                    <span class="value"></span>
-                    <label>Is this impacting end users?</label>
-                    <input type="range" min="1" max="3" step="1" value="1" />
-                </fieldset>
-                <fieldset class="p-tshoot">
-                    <span class="value"></span>
-                    <label>Have you done first level triaging/troubleshooting?</label>
-                    <input type="range" min="1" max="2" step="1" value="1" />
-                </fieldset>
-                <fieldset class="p-peers">
-                    <span class="value"></span>
-                    <label>Is there a service desk ticket for this?</label>
-                    <input type="range" min="1" max="2" step="1" value="3" />
+                    <input type="range" min="1" max="3" step="1" value="2" />
                 </fieldset>
             </form>
             <h1 class="answer">
-                <span><span class="bool"></span><span class="percent"></span></span>
+                <span><span class="bool"></span> (<span class="percent"></span>)</span>
             </h1>
         </section>
 
@@ -61,10 +42,7 @@
     <script>
         (function () {
             const params = [
-                { weight: 1, value: 1, negative: false, name: 'p-outage', },
-                { weight: 2, value: 1, negative: false, name: 'p-impact', },
-                { weight: 0.3, value: 1, negative: false, name: 'p-tshoot', },
-                { weight: 0.6, value: 1, negative: false, name: 'p-peers', },
+                { weight: 2, value: 1, negative: false, name: 'p-outage', },
             ]
 
             params.forEach((p, n) => {
@@ -88,17 +66,17 @@
                     }, 0);
 
                     // Display the results.
-                    // document.querySelector(".answer .percent").innerText = `${(sum * 100).toFixed(0)}%`;
+                    document.querySelector(".answer .percent").innerText = `${(sum * 100).toFixed(0)}%`;
 
-                    let b = 'Yes, Please call DevOps Engineer over the Phone!';
+                    let b = 'Yes';
                     if (sum < 0.5 && sum > 0.46) {
-                        b = `No, Please add a Service Desk Ticket!`;
+                        b = `No, but a close call.`;
                     } else if (sum < 0.48) {
-                        b = `No, Please add a Service Desk Ticket!`;
+                        b = `No.`;
                     } else if (sum > 0.5 && sum < 0.54) {
-                        b = `Yes, Please call DevOps Engineer over the Phone!`;
+                        b = `Yes, but a close call.`;
                     } else if (sum === 0.5) {
-                        b = 'Yes';
+                        b = '50-50. Go with the gut.';
                     }
                     document.querySelector(".answer .bool").innerText = b;
                 };

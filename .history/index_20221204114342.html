@@ -22,11 +22,7 @@
                 <fieldset class="p-outage">
                     <span class="value"></span>
                     <label>Is this a production outage?</label>
-                    <input type="range" min="1" max="2" step="1" list="tickmarks" />
-                    <datalist id="tickmarks">
-                        <option value="1"></option>
-                        <option value="2"></option>
-                    </datalist>
+                    <input type="range" min="1" max="2" step="1" value="1" />
                 </fieldset>
                 <fieldset class="p-impact">
                     <span class="value"></span>
@@ -61,10 +57,10 @@
     <script>
         (function () {
             const params = [
-                { weight: 1, value: 1, negative: false, name: 'p-outage', },
+                { weight: 0.8, value: 1, negative: false, name: 'p-outage', },
                 { weight: 2, value: 1, negative: false, name: 'p-impact', },
                 { weight: 0.3, value: 1, negative: false, name: 'p-tshoot', },
-                { weight: 0.6, value: 1, negative: false, name: 'p-peers', },
+                { weight: 1, value: 1, negative: false, name: 'p-peers', },
             ]
 
             params.forEach((p, n) => {
@@ -90,13 +86,13 @@
                     // Display the results.
                     // document.querySelector(".answer .percent").innerText = `${(sum * 100).toFixed(0)}%`;
 
-                    let b = 'Yes, Please call DevOps Engineer over the Phone!';
+                    let b = 'Yes';
                     if (sum < 0.5 && sum > 0.46) {
-                        b = `No, Please add a Service Desk Ticket!`;
+                        b = `No, Please add a Service Desk Ticket`;
                     } else if (sum < 0.48) {
-                        b = `No, Please add a Service Desk Ticket!`;
+                        b = `No, Please add a Service Desk Ticket`;
                     } else if (sum > 0.5 && sum < 0.54) {
-                        b = `Yes, Please call DevOps Engineer over the Phone!`;
+                        b = `Yes`;
                     } else if (sum === 0.5) {
                         b = 'Yes';
                     }

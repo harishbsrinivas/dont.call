@@ -113,11 +113,10 @@ button {
   margin-bottom: 45px;
 }
   .form label {
-    display: block;
+    display: none;
     margin-bottom: 15px;
   }
   .form .value, .help {
-    display: none;
     float: right;
     color: #aaa;
   }
@@ -125,7 +124,7 @@ button {
 .answer {
   text-align: center;
   margin: 30px 0;
-  font-size: 1.5rem;
+  font-size: 3rem;
   line-height: 3rem;
 }
   .answer span {

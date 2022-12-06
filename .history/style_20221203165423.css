@@ -93,7 +93,7 @@ button {
     border: 1px solid #ddd;
     border-radius: 3px;
     border: 2px solid var(--secondary);
-    box-shadow: 3px 3px 0px var(--secondary);
+    box-shadow: 3px 3px 0px var(--secondary);   
     margin-bottom: 45px;
 }
 
@@ -117,7 +117,6 @@ button {
     margin-bottom: 15px;
   }
   .form .value, .help {
-    display: none;
     float: right;
     color: #aaa;
   }
@@ -125,7 +124,7 @@ button {
 .answer {
   text-align: center;
   margin: 30px 0;
-  font-size: 1.5rem;
+  font-size: 3rem;
   line-height: 3rem;
 }
   .answer span {
@@ -148,7 +147,7 @@ footer {
   .box {
     padding: 0;
     border: 0;
-    box-shadow: none;
+    box-shadow: none;    
   }
   .help {
     float: none;

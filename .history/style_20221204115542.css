@@ -125,8 +125,9 @@ button {
 .answer {
   text-align: center;
   margin: 30px 0;
-  font-size: 1.5rem;
+  font-size: 1rem;
   line-height: 3rem;
+  padding: 10%;
 }
   .answer span {
     display: inline-block;
